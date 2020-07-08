@@ -73,7 +73,7 @@ function renderBookList() {
       removeBookFromLibrary(index);
     })
 
-    // RIGHT HERE add another event listener for each Read/Not Read button to call a function that toggles the true/false of the object's key:value 'read:true'. I need to first fix the input so that true/false gets inputted as boolean instead of string. I also need to change the HTML so it's a checkbox instead of an text input field.
+    // Add an event listener for each Read/Not Read button to call the toggleRead function that toggles the true/false of the object's key:value 'read:true' 
     readBookBtn.addEventListener('click', function() {
       toggleRead(index);
     })
