@@ -2,7 +2,8 @@ const topDiv = document.getElementById('topdiv');
 const newBookBtn = document.getElementById("newbtn");
 const bookList = document.querySelector('ul');
 
-let myLibrary = [{title:"The Catcher in the Rye",author:"J.D. Salinger",pages:294,read:true},{title:"The Right Stuff",author:"Tom Wolfe",pages:594,read:false}];
+// let myLibrary = [{title:"The Catcher in the Rye",author:"J.D. Salinger",pages:294,read:true},{title:"The Right Stuff",author:"Tom Wolfe",pages:594,read:false}];
+let myLibrary = [];
 
 function Book(title, author, pages, read) {
   this.title = title
@@ -78,6 +79,8 @@ function renderBookList() {
       toggleRead(index);
     })
   });
+
+  populateStorage();
 }
 
 function createForm() {
@@ -142,6 +145,30 @@ function deleteForm() {
   }
 }
 
+function populateStorage() {
+  // First remove all existing items from local storage, so it can be repopulated
+  let j = localStorage.length
+  for (i=0;i<j;i++) {
+    localStorage.removeItem(i)
+  }
 
+  // Repopulate local storage with each book object, using the index of each book object in the myLibrary array as the key in localStorage
+  myLibrary.forEach((book,index) => {
+    localStorage.setItem(index,JSON.stringify(book)) 
+  })
+}
+
+function populateMyLibrary() {
+  if (localStorage.length!==0) {
+    for (key in localStorage) {
+      if (localStorage.hasOwnProperty(key)) {
+        let bkObj = JSON.parse(localStorage[key]);
+        myLibrary.push(new Book(bkObj.title, bkObj.author, bkObj.pages, bkObj.read))
+      }
+    }
+  }
+}
+
+populateMyLibrary();
 renderBookList();
 newBookBtn.addEventListener('click', createForm);
