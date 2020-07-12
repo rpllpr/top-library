@@ -1,3 +1,3 @@
-The Library proejct from [The Odin Project](https://www.theodinproject.com).
+The Library project from [The Odin Project](https://www.theodinproject.com).
 
-Run th app at <https://rpllpr.github.io/top-library>.
+Run the app at <https://rpllpr.github.io/top-library>.
