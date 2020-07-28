@@ -1,4 +1,5 @@
-const topDiv = document.getElementById('topdiv');
+const modal = document.getElementById('modal');
+const modalContent = document.getElementById('modalContent');
 const newBookBtn = document.getElementById("newbtn");
 const bookList = document.querySelector('ul');
 
@@ -120,9 +121,19 @@ function createForm() {
   inputCancel.id = 'cancelNewBook'
   inputCancel.textContent= "Cancel"
 
-  // Append the form elements to the form, then append the form to the "topDiv" div
+  // Append the form elements to the form, then append the form to modalContent, append modalContent to modal
   form.append(labelTitle, inputTitle, labelAuthor, inputAuthor, labelPages, inputPages, labelRead, inputRead, inputSubmit, inputCancel);
-  topDiv.appendChild(form);
+  modalContent.appendChild(form);
+  modal.appendChild(modalContent);
+
+  modalContent.classList.add("modal-content");
+  modal.style.display = "block";
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      deleteForm(); 
+    }
+  }
 
   // Add an event listener to the Submit button that passes the input values as arguments to the AddBookToLibrary function 
   const inputSubmitNewBook = document.getElementById("submitNewBook")
@@ -139,7 +150,8 @@ function deleteForm() {
   // As long as there is a HTML form element, select it and remove it from the "topDiv" div
   while (document.querySelector('form')) {
     const formerForm = document.querySelector('form')
-    topDiv.removeChild(formerForm)
+    modalContent.removeChild(formerForm)
+    modal.style.display = "none";
   }
 }
 
