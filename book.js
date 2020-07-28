@@ -113,14 +113,12 @@ function createForm() {
   const inputRead = document.createElement('input');
   inputRead.type = 'checkbox'
   inputRead.id = 'read'
-  const inputSubmit = document.createElement('input');
+  const inputSubmit = document.createElement('button');
   inputSubmit.id = 'submitNewBook'
-  inputSubmit.type = 'button'
-  inputSubmit.value = "Submit"
-  const inputCancel = document.createElement('input');
+  inputSubmit.textContent= "Submit"
+  const inputCancel = document.createElement('button');
   inputCancel.id = 'cancelNewBook'
-  inputCancel.type = 'button'
-  inputCancel.value = "Cancel"
+  inputCancel.textContent= "Cancel"
 
   // Append the form elements to the form, then append the form to the "topDiv" div
   form.append(labelTitle, inputTitle, labelAuthor, inputAuthor, labelPages, inputPages, labelRead, inputRead, inputSubmit, inputCancel);
