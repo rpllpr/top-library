@@ -61,13 +61,13 @@ function renderBookList() {
   // Finally, create a Read button for each book and append it to the end of the line item
   myLibrary.forEach((book,index) => {
     const li = document.createElement('li');
-    const deleteBookBtn = document.createElement('button');
     const readBookBtn = document.createElement('button');
+    const deleteBookBtn = document.createElement('button');
     deleteBookBtn.textContent = "Delete"
     readBookBtn.textContent = "Read/Not Read"
     li.append(document.createTextNode(`${book.title}, ${book.author}, ${book.pages} pages, ${book.read}`));
-    li.append(deleteBookBtn);
     li.append(readBookBtn);
+    li.append(deleteBookBtn);
     bookList.appendChild(li);
 
     // Add an event listener to each Delete button that removes the book from the library by calling the removeBookFromLibrary function
@@ -129,6 +129,7 @@ function createForm() {
   modalContent.classList.add("modal-content");
   modal.style.display = "block";
 
+  // Add an event listener to the area outside of the modal/Add a Book form so that if it's clicked it will delete the form
   window.onclick = function(event) {
     if (event.target == modal) {
       deleteForm(); 
@@ -144,6 +145,9 @@ function createForm() {
   // Add an event listener to the Cancel button that calls the deleteForm function
   const inputCancelNewBook = document.getElementById("cancelNewBook")
   inputCancelNewBook.addEventListener('click', deleteForm)
+
+  // Put the cursor on the first input box in the form
+  inputTitle.focus();
 }
 
 function deleteForm() {
