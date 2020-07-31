@@ -23,6 +23,11 @@ header {
   background: darkred;
 }
 
+.newbtn:focus,
+.newbtn:hover {
+  box-shadow: -1px -1px 5px 0px rgb(105, 65, 57);
+}
+
 button {
   background-color: darksalmon;
   border: none;
@@ -34,6 +39,11 @@ button {
   font-size: 1.5rem;
   cursor: pointer;
   margin: .2rem;
+}
+
+button:focus,
+button:hover {
+  box-shadow: -1px -1px 5px 0px rgb(178, 133, 122);
 }
 
 .listdiv {
