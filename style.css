@@ -15,13 +15,18 @@ body {
 
 header {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-content: center;
   color: maroon;
 }
 
+h1 {
+  margin: 15px;
+}
+
 .newbtn {
   background: darkred;
+  margin: .5rem;
 }
 
 .newbtn:focus,
