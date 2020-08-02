@@ -16,7 +16,7 @@ body {
 header {
   display: flex;
   justify-content: space-between;
-  align-content: center;
+  align-items: center;
   color: maroon;
 }
 
@@ -26,7 +26,8 @@ h1 {
 
 .newbtn {
   background: darkred;
-  margin: .5rem;
+  margin: .4rem;
+  padding: .6rem;
 }
 
 .newbtn:focus,
